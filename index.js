@@ -322,7 +322,8 @@
           draggedStyle.top = this.state.originalPosition.top;
           draggedStyle.left = event.clientX - this.state.dragOffset.left;
         } else {
-          draggedStyle.top = event.clientY - this.state.dragOffset.top;
+          // Fix scroll position with body.scrollTop
+          draggedStyle.top =  document.body.scrollTop + event.clientY - this.state.dragOffset.top;
           draggedStyle.left = event.clientX - this.state.dragOffset.left;
         }
 
